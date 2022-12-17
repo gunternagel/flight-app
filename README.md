@@ -1,6 +1,7 @@
 # FlightApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
+It is a learning project based on the book 'Angular' from the publisher O'Reilly - ISBN978-3-96009-166-0 
 
 ## Development server
 
