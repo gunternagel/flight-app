@@ -1,1 +1,12 @@
-<p>flight-search works!</p>
+<p>
+    <button [disabled]="!from || !to">Search</button>
+    <div>Es wurden {{ selectedFlight.length }} Flüge gefunden</div>
+    <table class="table table-striped">
+        <tr *ngFor="let flight of flights [ngClass]={'active' : flight === selectedFlight }">
+            <td>{{flight.id}}</td>
+            <td>{{flight.from}}</td>
+            <td>{{flight.to}}</td>
+            <td>{{flight.date}}</td>
+        </tr>
+    </table>
+</p>
