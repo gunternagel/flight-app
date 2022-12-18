@@ -1,5 +1,4 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-
 import { Component, OnInit } from '@angular/core';
 import { Flight } from '../flight';
 
@@ -19,7 +18,7 @@ export class FlightSearchComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    // this is empty
+    this.selectedFlight = this.flights[0];
   }
 
   search() :void {
