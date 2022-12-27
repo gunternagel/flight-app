@@ -13,12 +13,14 @@ export class FlightSearchComponent implements OnInit{
   to = 'Graz';
   flights: Array<Flight> = [];
   selectedFlight: Flight | null = null;
-  basket; { [key:number]: boolean} = {
+  basket: { [key:number]: boolean} = {
     3: true,
     5: true
   };
+  http: HttpClient;
 
-  constructor(private http: HttpClient) {
+  constructor( http: HttpClient) {
+    this.http = http;
   }
 
   ngOnInit(): void {
@@ -34,10 +36,10 @@ export class FlightSearchComponent implements OnInit{
     const params = new HttpParams().set('from', this.from).set('to', this.to);
 
     this.http.get<Flight[]>(url, {headers, params}).subscribe({
-      next: (flights) => {
+      next: (flights: Flight[]) => {
         this.flights = flights;
       },
-      error: (err) => {
+      error: (err: any) => {
         console.error('Error', err);
       }
     });

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Flight } from '../flight';
 
 @Component({
   selector: 'app-flight-card',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class FlightCardComponent {
 
+  @Input() item: Flight | null = null;
+  @Input() selected = false;
+
+  select(){
+    this.selected = true;
+  }
+
+  deselect(){
+    this.selected = false;
+  }
 }
