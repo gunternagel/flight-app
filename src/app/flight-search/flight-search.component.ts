@@ -24,7 +24,6 @@ export class FlightSearchComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.selectedFlight = this.flights[0];
   }
 
   search() :void {
