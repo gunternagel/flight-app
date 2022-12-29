@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges, OnChanges } from '@angular/core';
 import { Flight } from '../flight';
 
 @Component({
@@ -6,7 +6,7 @@ import { Flight } from '../flight';
   templateUrl: './flight-card.component.html',
   styleUrls: ['./flight-card.component.scss']
 })
-export class FlightCardComponent {
+export class FlightCardComponent implements OnInit, OnChanges {
 
   @Input() item: Flight | null = null;
   @Input() selected = false;
@@ -20,5 +20,21 @@ export class FlightCardComponent {
   deselect(){
     this.selected = false;
     this.selectedChange.emit(false);
+  }
+
+  ngOnInit(): void {
+    console.debug('ngOnInit', this.item);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.debug('ngOnChanges', this.item);
+
+    if(changes['item']){
+      console.debug('ngOnChanges: Item');
+    }
+
+    if(changes['selected']){
+      console.debug('ngOnChanges: selected');
+    }
   }
 }
