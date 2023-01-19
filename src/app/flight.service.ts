@@ -1,24 +1,12 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { DefaultFlightService } from './default-flight.service';
 import { Flight } from './flight';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
+  useClass: DefaultFlightService
 })
-export class FlightService {
-
-  constructor(private http: HttpClient) { }
-
-  find(from: string, to: string): Observable<Flight[]> {
-    const url = 'http://demo.angulararchitects.io/api/flight';
-
-    const headers = new HttpHeaders().set('Accept', 'application/json');
-
-    const params = new HttpParams()
-                        .set('from', from)
-                        .set('to', to);
-
-    return this.http.get<Flight[]>(url, {headers, params});
-  }
+export abstract class FlightService {
+  abstract find(from: string, to: string): Observable<Flight[]>;
 }
