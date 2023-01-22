@@ -11,6 +11,7 @@ import { FlightCardComponent } from './flight-card/flight-card.component';
 import { DateComponent } from './date/date.component';
 import { FlightService } from './flight.service';
 import { DefaultFlightService } from './default-flight.service';
+import { CityPipe } from './city.pipe';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { DefaultFlightService } from './default-flight.service';
       NavbarComponent,
       FlightSearchComponent,
       FlightCardComponent,
-      DateComponent
+      DateComponent,
+      CityPipe
    ],
    providers: [
     {
