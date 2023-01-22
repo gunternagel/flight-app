@@ -18,12 +18,15 @@ export class FlightSearchComponent implements OnInit{
     5: true
   };
 
+  delayFilter = false;
+
   date: string = (new Date).toISOString();
 
   constructor( private flightService: FlightService) {
   }
 
   ngOnInit(): void {
+    this.delayFilter = false;
   }
 
   search() :void {

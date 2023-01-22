@@ -12,6 +12,8 @@ import { DateComponent } from './date/date.component';
 import { FlightService } from './flight.service';
 import { DefaultFlightService } from './default-flight.service';
 import { CityPipe } from './city.pipe';
+import { StatusFilterPipe } from './status-filter.pipe';
+import { StatusColorPipe } from './status-color.pipe';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { CityPipe } from './city.pipe';
       FlightSearchComponent,
       FlightCardComponent,
       DateComponent,
-      CityPipe
+      CityPipe,
+      StatusFilterPipe,
+      StatusColorPipe
    ],
    providers: [
     {
