@@ -5,6 +5,8 @@ import { SharedModule } from '../shared/shared.module';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
 import { FlightCardComponent } from './flight-card/flight-card.component';
 import { StatusFilterPipe } from './status-filter.pipe';
+import { FlightService } from './flight.service';
+import { DefaultFlightService } from './default-flight.service';
 
 @NgModule({
   imports: [
@@ -16,6 +18,9 @@ import { StatusFilterPipe } from './status-filter.pipe';
     FlightSearchComponent,
     FlightCardComponent,
     StatusFilterPipe
+  ],
+  providers:[
+    { provide: FlightService, useClass: DefaultFlightService }
   ],
   exports: [
     FlightSearchComponent

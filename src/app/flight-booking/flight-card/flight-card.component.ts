@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges, OnChanges } from '@angular/core';
+import { NgClass, NgStyle, JsonPipe } from '@angular/common';
 import { Flight } from '../flight';
 
 @Component({
