@@ -10,7 +10,7 @@ import { DefaultFlightService } from './default-flight.service';
 
 @NgModule({
   imports: [
-    CommonModule,
+    //CommonModule,
     FormsModule,
     SharedModule
   ],

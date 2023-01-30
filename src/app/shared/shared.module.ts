@@ -18,7 +18,8 @@ import { FormsModule } from '@angular/forms';
   exports: [
     DateComponent,
     CityPipe,
-    StatusColorPipe
+    StatusColorPipe,
+    CommonModule
   ]
 })
 export class SharedModule { }
