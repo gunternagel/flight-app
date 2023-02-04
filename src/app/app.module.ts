@@ -6,10 +6,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { FlightBookingModule } from './flight-booking/flight-booking.module';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { APP_ROUTES } from "./app.routes";
+import { RouterModule } from '@angular/router';
+
 
 
 @NgModule({
    imports: [
+    RouterModule.forRoot(APP_ROUTES),
       HttpClientModule,
       BrowserModule,
       SharedModule,
@@ -18,7 +25,10 @@ import { FlightBookingModule } from './flight-booking/flight-booking.module';
    declarations: [
       AppComponent,
       SidebarComponent,
-      NavbarComponent
+      NavbarComponent,
+      HomeComponent,
+      AboutComponent,
+      NotFoundComponent
    ],
    providers: [],
    bootstrap: [
