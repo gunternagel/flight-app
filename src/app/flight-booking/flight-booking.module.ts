@@ -10,6 +10,8 @@ import { DefaultFlightService } from './default-flight.service';
 import { PassengerSearchComponent } from './passenger-search/passenger-search.component';
 import { RouterModule } from '@angular/router';
 import { FLIGHT_BOOKING_ROUTES } from './flight-booking.routes';
+import { FlightEditComponent } from './flight-edit/flight-edit.component';
+import { FlightBookingComponent } from './flight-booking.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { FLIGHT_BOOKING_ROUTES } from './flight-booking.routes';
     FlightSearchComponent,
     FlightCardComponent,
     StatusFilterPipe,
-    PassengerSearchComponent
+    PassengerSearchComponent,
+    FlightEditComponent,
+    FlightBookingComponent
   ],
   providers:[
     { provide: FlightService, useClass: DefaultFlightService }
