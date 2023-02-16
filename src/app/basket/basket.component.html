@@ -1,0 +1,22 @@
+<div class="card-background"></div>
+
+<div class="card-container">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="title">Basket</h2>
+    </div>
+
+    <div class="card-body">
+      For the time being, this is just a dummy component.
+    </div>
+
+    <div class="card-footer">
+      <a [routerLink]="['/', {outlets: {aux: null}}]">Close</a>
+      <a [routerLink]="['/', {outlets: {aux: ['basket', 17]}}]">Close2</a>
+      <a [routerLink]="[{outlets: {primary: 'flight-booking/flight-search', aux: 'basket2'}}]">Basket2</a>
+      <a [routerLink]="['flight-booking/flight-search', {outlets: {aux: 'basket'}}]">
+        <p>Basket</p>
+      </a>
+    </div>
+  </div>
+</div>
