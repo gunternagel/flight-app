@@ -7,10 +7,17 @@ import { FlightService } from '../flight.service';
   templateUrl: './flight-search.component.html',
   styleUrls: ['./flight-search.component.scss']
 })
+
 export class FlightSearchComponent implements OnInit{
 
-  from = 'Hamburg';
-  to = 'Graz';
+  from = '';
+  to = '';
+
+  module = {
+    from : '',
+    to: ''
+  };
+
   flights: Array<Flight> = [];
   selectedFlight: Flight | null = null;
   basket: { [key:number]: boolean} = {
@@ -23,6 +30,8 @@ export class FlightSearchComponent implements OnInit{
   date: string = (new Date).toISOString();
 
   constructor( private flightService: FlightService) {
+    this.module.from = 'Hamburg';
+    this.module.to = 'Graz';
   }
 
   ngOnInit(): void {
@@ -31,7 +40,7 @@ export class FlightSearchComponent implements OnInit{
 
   search() :void {
 
-    this.flightService.find(this.from, this.to).subscribe({
+    this.flightService.find(this.module.from, this.module.to).subscribe({
       next: (flights) => {
         this.flights = flights;
       },

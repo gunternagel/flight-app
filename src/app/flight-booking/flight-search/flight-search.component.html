@@ -3,34 +3,93 @@
 
   <h1>Flight Search</h1>
 
-  <div class="form-group">
-      <label>From:<input class="form-control"></label>
-      <!--<input [(ngModel)]="from" class="from-control">-->
-  </div>
+  <form #f="ngForm">
 
-  <div class="form-group">
-      <label>To:<input class="form-control"></label>
-      <!--<input [(ngModel)]="to" class="form-control">-->
-  </div>
+    <div class="form-group">
+        <label>From:
+          <input
+          [(ngModel)]="from"
+          name="from"
+          required
+          minlength="3"
+          appCity="Graz,München,Hamburg,Frankfurt,Zürich,Wien"
+          class="form-control" />
+        </label>
+    </div>
 
-  <div class="form-group">
-    <label>Date:<app-date [(date)] = "date"></app-date></label>
-    {{date}}
-  </div>
+  <!-- <div class="form-group">
+    <label>From:
+      <input
+        class="form-control"
+        name='from'
+        required minlength="3"
+        [(ngModel)]="module.from"
+        #from="ngModel"
+        appCity
+      >
+    </label>
+</div> -->
 
-  <div class="form-group">
-    <input [(ngModel)]="delayFilter" type="checkbox" id="delayFilter" name="delayFilter">
-    &nbsp;
-    <label for="delayFilter">Delayed</label>
-  </div>
+    <div class="error" *ngIf="!f?.controls?.['from']?.valid">
+      Es liegen Validierungsfehler für diese Eingabe vor.
+    </div>
 
-  <div class="form-group">
-      <button class="btn btn-default" (click)="search()" [disabled]="!from || !to">
-          Search
-      </button>
-  </div>
+    <div class="error" *ngIf="f?.controls?.['from']?.hasError('required')">
+      Dieses Feld ist ein Pflichtfeld.
+    </div>
 
+    <div class="error" *ngIf="f?.controls?.['from']?.hasError('minlength')">
+      Erfassen Sie bitte min. 3 Zeichen.
+    </div>
 
+    <div class="error" *ngIf="f?.controls?.['from']?.errors">
+      Internes Errors-Objekt: {{ f?.controls?.['from']?.errors | json}}
+    </div>
+
+    <div class="error" *ngIf="f?.controls?.['from']?.hasError('appCity')">
+      {{f?.controls?.['from']?.hasError('appCity') | json}}
+    </div>
+
+    <div class="form-group">
+        <label>To:
+          <input [(ngModel)]="module.to" name="to" required minlength="3" class="form-control">
+        </label>
+    </div>
+
+    <div class="error" *ngIf="!f?.controls?.['to']?.valid">
+      Es liegen Validierungsfehler für diese Eingabe vor.
+    </div>
+
+    <div class="error" *ngIf="f?.controls?.['to']?.hasError('required')">
+      Dieses FEld ist ein Pflichtfeld.
+    </div>
+
+    <div class="error" *ngIf="f?.controls?.['to']?.hasError('minlength')">
+      Erfassen Sie bitte min. 3 Zeichen.
+    </div>
+
+    <div class="error" *ngIf="f?.controls?.['to']?.errors">
+      Internes Errors-Objekt: {{ f?.controls?.['to']?.errors | json}}
+    </div>
+
+    <div class="form-group">
+      <label>Date:<app-date [(date)] = "date"></app-date></label>
+      {{date}}
+    </div>
+
+    <div class="form-group">
+      <input [(ngModel)]="delayFilter" type="checkbox" id="delayFilter" name="delayFilter">
+      &nbsp;
+      <label for="delayFilter">Delayed</label>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-default" (click)="search()" [disabled]="!f?.valid">
+            Search
+        </button>
+    </div>
+
+  </form>
 
   <div class="row">
     <div *ngFor="let f of flights | statusFilter:delayFilter" class="col-xs-12 col-sm-6 col-md-lg-4 col-xl-3">
