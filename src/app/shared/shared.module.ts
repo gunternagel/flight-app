@@ -6,6 +6,7 @@ import { StatusColorPipe } from './status-color.pipe';
 import { FormsModule } from '@angular/forms';
 import { CityValidationDirective } from './validation/city-validation.directive';
 import { RoundTripValidationDirective } from './validation/round-trip-validation.directive';
+import { AsyncCityValidationDirective } from './validation/async-city-validation.directive';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { RoundTripValidationDirective } from './validation/round-trip-validation
     CityPipe,
     StatusColorPipe,
     CityValidationDirective,
-    RoundTripValidationDirective
+    RoundTripValidationDirective,
+    AsyncCityValidationDirective
   ],
   exports: [
     DateComponent,
