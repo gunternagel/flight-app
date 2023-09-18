@@ -19,8 +19,12 @@
             name="from"
             required
             minlength="3"
-            appCity="Graz,München,Hamburg,Frankfurt,Zürich,Wien"
-            class="form-control" />
+            appAsyncCity
+            appCity="Trippsdrill,Graz,München,Hamburg,Frankfurt,Zürich,Wien"
+            class="form-control">
+
+          <app-validation-errors [errors]="f?.controls?.['from']?.errors"></app-validation-errors>
+
         </label>
     </div>
 

@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { CityValidationDirective } from './validation/city-validation.directive';
 import { RoundTripValidationDirective } from './validation/round-trip-validation.directive';
 import { AsyncCityValidationDirective } from './validation/async-city-validation.directive';
+import { ValidationErrorsComponent } from './validation/validation-errors/validation-errors.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { AsyncCityValidationDirective } from './validation/async-city-validation
     StatusColorPipe,
     CityValidationDirective,
     RoundTripValidationDirective,
-    AsyncCityValidationDirective
+    AsyncCityValidationDirective,
+    ValidationErrorsComponent
   ],
   exports: [
     DateComponent,
@@ -27,7 +29,8 @@ import { AsyncCityValidationDirective } from './validation/async-city-validation
     StatusColorPipe,
     CommonModule,
     CityValidationDirective,
-    RoundTripValidationDirective
+    RoundTripValidationDirective,
+    ValidationErrorsComponent
   ]
 })
 export class SharedModule { }
