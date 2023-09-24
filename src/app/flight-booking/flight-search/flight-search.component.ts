@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Flight } from '../flight';
 import { FlightService } from '../flight.service';
+import { FlightClass } from '../flight-class';
+import { LuggageOptions } from '../luggage-options';
 
 @Component({
   selector: 'app-flight-search',
@@ -17,6 +19,28 @@ export class FlightSearchComponent implements OnInit{
     from : '',
     to: ''
   };
+
+  nonstop: boolean = false;
+
+  // Auswahl
+  flightClasses: FlightClass[] = [
+    { id: 1, name: '1st Class' },
+    { id: 2, name: 'Business Class '},
+    { id: 3, name: 'Economy Class '}
+  ];
+
+  // tatsächlich ausgewählte Klasse mit Standardwert
+  flightClass = this.flightClasses[2];
+
+  // Auswahl
+  luggageOptions: LuggageOptions[] = [
+    { id: 0, name: 'No luggage' },
+    { id: 1, name: '1 piece of luggage' },
+    { id: 2, name: '2 pieces of luggage' }
+  ];
+
+  // tatsächlich ausgewählte Option mit Standardwerten
+  luggage = this.luggageOptions[2];
 
   flights: Array<Flight> = [];
   selectedFlight: Flight | null = null;
