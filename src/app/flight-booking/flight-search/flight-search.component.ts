@@ -3,6 +3,8 @@ import { Flight } from '../flight';
 import { FlightService } from '../flight.service';
 import { FlightClass } from '../flight-class';
 import { LuggageOptions } from '../luggage-options';
+import { of } from "rxjs";
+import { count } from "rxjs/operators";
 
 @Component({
   selector: 'app-flight-search',
@@ -64,6 +66,8 @@ export class FlightSearchComponent implements OnInit{
 
   search() :void {
 
+    this.rxjsSampleMethod();
+
     this.flightService.find(this.module.from, this.module.to).subscribe({
       next: (flights) => {
         this.flights = flights;
@@ -75,6 +79,19 @@ export class FlightSearchComponent implements OnInit{
   }
 
   select(f: Flight) {
+    this.rxjsSampleMethod();
     this.selectedFlight = f;
+  }
+
+  public rxjsSampleMethod():void{
+    const of$ = of(1, 2, 3, 4, 5);
+    let ergebnis: boolean = false;
+
+    const result = of$.pipe(count());
+    result.subscribe(x => {
+      console.log(x);
+      if(x == 5){ergebnis = true;}else ergebnis=false;
+    });
+    console.log(ergebnis);
   }
 }
